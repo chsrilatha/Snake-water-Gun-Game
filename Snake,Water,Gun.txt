@@ -1,0 +1,26 @@
+import java.util.*;
+public class SnakeWaterGun {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] choices = {"snake", "water", "gun"};
+        Random rand = new Random();
+        while (true) {
+            System.out.print("Enter snake, water, gun or exit: ");
+            String user = sc.nextLine().toLowerCase();
+            if (user.equals("exit")) break;
+            String comp = choices[rand.nextInt(3)];
+            System.out.println("Computer chose: " + comp);
+            if (user.equals(comp)) {
+                System.out.println("Result: Tie!");
+            } else if ((user.equals("snake") && comp.equals("water")) ||
+                       (user.equals("water") && comp.equals("gun")) ||
+                       (user.equals("gun") && comp.equals("snake"))) {
+                System.out.println("Result: You Win!");
+            } else {
+                System.out.println("Result: You Lose!");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
